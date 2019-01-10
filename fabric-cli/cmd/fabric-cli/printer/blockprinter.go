@@ -91,6 +91,9 @@ type Printer interface {
 	// PrintBlock outputs a Block
 	PrintBlock(block *fabriccmn.Block)
 
+	// PrintFormattedBlock outputs a Block formatted for Ion submission
+	PrintFormattedBlock(block *fabriccmn.Block)
+
 	// PrintFilteredBlock outputs a Block
 	PrintFilteredBlock(block *pb.FilteredBlock)
 
@@ -183,6 +186,17 @@ func (p *BlockPrinter) PrintBlock(block *fabriccmn.Block) {
 	p.ArrayEnd()
 	p.ElementEnd()
 	p.PrintFooter()
+}
+
+// PrintFormattedBlock prints a Block formatted for Ion submission
+func (p *BlockPrinter) PrintFormattedBlock(block *fabriccmn.Block) {
+	if p.Formatter == nil {
+		fmt.Printf("%s\n", block)
+		return
+	}
+
+    encodedBlock := encodeBlockIon(block)
+	p.Print(encodedBlock)
 }
 
 // PrintFilteredBlock prints a FilteredBlock

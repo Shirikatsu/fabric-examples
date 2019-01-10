@@ -25,6 +25,7 @@ func Cmd() *cobra.Command {
 	cliconfig.InitChannelID(queryCmd.Flags())
 
 	queryCmd.AddCommand(getQueryBlockCmd())
+	queryCmd.AddCommand(getQueryBlockFmtCmd())
 	queryCmd.AddCommand(getQueryInfoCmd())
 	queryCmd.AddCommand(getQueryTXCmd())
 	queryCmd.AddCommand(getQueryChannelsCmd())
