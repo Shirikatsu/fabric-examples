@@ -190,13 +190,17 @@ func (p *BlockPrinter) PrintBlock(block *fabriccmn.Block) {
 
 // PrintFormattedBlock prints a Block formatted for Ion submission
 func (p *BlockPrinter) PrintFormattedBlock(block *fabriccmn.Block) {
-	if p.Formatter == nil {
+	if p.Encoder == nil {
 		fmt.Printf("%s\n", block)
 		return
 	}
 
-    encodedBlock := encodeBlockIon(block)
-	p.Print(encodedBlock)
+    encodedBlock, err := p.EncodeBlock(block)
+    if err != nil {
+        fmt.Printf("ERROR: %s", err)
+        return
+    }
+	fmt.Println(encodedBlock)
 }
 
 // PrintFilteredBlock prints a FilteredBlock

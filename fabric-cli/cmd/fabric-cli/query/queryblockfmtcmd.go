@@ -7,14 +7,11 @@ SPDX-License-Identifier: Apache-2.0
 package query
 
 import (
-	"encoding/base64"
-	"strings"
-
 	"github.com/hyperledger/fabric-sdk-go/pkg/client/ledger"
 	fabricCommon "github.com/hyperledger/fabric-sdk-go/third_party/github.com/hyperledger/fabric/protos/common"
 	"github.com/pkg/errors"
-	"github.com/securekey/fabric-examples/fabric-cli/cmd/fabric-cli/action"
-	cliconfig "github.com/securekey/fabric-examples/fabric-cli/cmd/fabric-cli/config"
+	"github.com/Shirikatsu/fabric-examples/fabric-cli/cmd/fabric-cli/action"
+	cliconfig "github.com/Shirikatsu/fabric-examples/fabric-cli/cmd/fabric-cli/config"
 	"github.com/spf13/cobra"
 	"github.com/spf13/pflag"
 )
@@ -68,7 +65,7 @@ func (a *queryBlockFmtAction) invoke() error {
 	var block *fabricCommon.Block
 	if cliconfig.IsFlagSet(cliconfig.BlockNumFlag) {
 		var err error
-		block, err = ledgerClient.QueryBlockFmt(cliconfig.Config().BlockNum())
+		block, err = ledgerClient.QueryBlock(cliconfig.Config().BlockNum())
 		if err != nil {
 			return err
 		}
@@ -80,7 +77,7 @@ func (a *queryBlockFmtAction) invoke() error {
 			return err
 		}
 
-		block, err = ledgerClient.QueryBlockFmtByHash(hashBytes)
+		block, err = ledgerClient.QueryBlockByHash(hashBytes)
 		if err != nil {
 			return err
 		}
@@ -100,7 +97,7 @@ func (a *queryBlockFmtAction) traverse(ledgerClient *ledger.Client, currentBlock
 		return nil
 	}
 
-	block, err := ledgerClient.QueryBlockFmtByHash(currentBlock.Header.PreviousHash)
+	block, err := ledgerClient.QueryBlockByHash(currentBlock.Header.PreviousHash)
 	if err != nil {
 		return err
 	}
@@ -111,13 +108,4 @@ func (a *queryBlockFmtAction) traverse(ledgerClient *ledger.Client, currentBlock
 		return a.traverse(ledgerClient, block, num-1)
 	}
 	return nil
-}
-
-// Base64URLDecode decodes the base64 string into a byte array
-func Base64URLDecode(data string) ([]byte, error) {
-	//check if it has padding or not
-	if strings.HasSuffix(data, "=") {
-		return base64.URLEncoding.DecodeString(data)
-	}
-	return base64.RawURLEncoding.DecodeString(data)
 }

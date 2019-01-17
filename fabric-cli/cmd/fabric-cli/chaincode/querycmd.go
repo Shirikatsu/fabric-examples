@@ -14,10 +14,10 @@ import (
 
 	"github.com/hyperledger/fabric-sdk-go/pkg/common/providers/fab"
 	"github.com/pkg/errors"
-	"github.com/securekey/fabric-examples/fabric-cli/cmd/fabric-cli/action"
-	"github.com/securekey/fabric-examples/fabric-cli/cmd/fabric-cli/chaincode/querytask"
-	cliconfig "github.com/securekey/fabric-examples/fabric-cli/cmd/fabric-cli/config"
-	"github.com/securekey/fabric-examples/fabric-cli/cmd/fabric-cli/executor"
+	"github.com/Shirikatsu/fabric-examples/fabric-cli/cmd/fabric-cli/action"
+	"github.com/Shirikatsu/fabric-examples/fabric-cli/cmd/fabric-cli/chaincode/querytask"
+	cliconfig "github.com/Shirikatsu/fabric-examples/fabric-cli/cmd/fabric-cli/config"
+	"github.com/Shirikatsu/fabric-examples/fabric-cli/cmd/fabric-cli/executor"
 	"github.com/spf13/cobra"
 	"github.com/spf13/pflag"
 )

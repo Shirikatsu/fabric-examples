@@ -14,7 +14,7 @@ import (
 
 	"fmt"
 
-	clicmd "github.com/securekey/fabric-examples/fabric-cli/cmd/fabric-cli/cmd"
+	clicmd "github.com/Shirikatsu/fabric-examples/fabric-cli/cmd/fabric-cli/cmd"
 )
 
 //

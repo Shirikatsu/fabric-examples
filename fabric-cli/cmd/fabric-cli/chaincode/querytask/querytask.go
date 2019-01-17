@@ -9,10 +9,10 @@ package querytask
 import (
 	"github.com/hyperledger/fabric-sdk-go/pkg/client/channel"
 	"github.com/hyperledger/fabric-sdk-go/pkg/common/providers/fab"
-	"github.com/securekey/fabric-examples/fabric-cli/cmd/fabric-cli/action"
-	"github.com/securekey/fabric-examples/fabric-cli/cmd/fabric-cli/chaincode/utils"
-	cliconfig "github.com/securekey/fabric-examples/fabric-cli/cmd/fabric-cli/config"
-	"github.com/securekey/fabric-examples/fabric-cli/cmd/fabric-cli/printer"
+	"github.com/Shirikatsu/fabric-examples/fabric-cli/cmd/fabric-cli/action"
+	"github.com/Shirikatsu/fabric-examples/fabric-cli/cmd/fabric-cli/chaincode/utils"
+	cliconfig "github.com/Shirikatsu/fabric-examples/fabric-cli/cmd/fabric-cli/config"
+	"github.com/Shirikatsu/fabric-examples/fabric-cli/cmd/fabric-cli/printer"
 )
 
 // Task is the query task

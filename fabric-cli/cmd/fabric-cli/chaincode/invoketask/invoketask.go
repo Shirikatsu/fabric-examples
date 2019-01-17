@@ -12,12 +12,12 @@ import (
 	"github.com/hyperledger/fabric-sdk-go/pkg/common/providers/fab"
 	pb "github.com/hyperledger/fabric-sdk-go/third_party/github.com/hyperledger/fabric/protos/peer"
 	"github.com/pkg/errors"
-	"github.com/securekey/fabric-examples/fabric-cli/cmd/fabric-cli/action"
-	"github.com/securekey/fabric-examples/fabric-cli/cmd/fabric-cli/chaincode/invokeerror"
-	"github.com/securekey/fabric-examples/fabric-cli/cmd/fabric-cli/chaincode/utils"
-	cliconfig "github.com/securekey/fabric-examples/fabric-cli/cmd/fabric-cli/config"
-	"github.com/securekey/fabric-examples/fabric-cli/cmd/fabric-cli/executor"
-	"github.com/securekey/fabric-examples/fabric-cli/cmd/fabric-cli/printer"
+	"github.com/Shirikatsu/fabric-examples/fabric-cli/cmd/fabric-cli/action"
+	"github.com/Shirikatsu/fabric-examples/fabric-cli/cmd/fabric-cli/chaincode/invokeerror"
+	"github.com/Shirikatsu/fabric-examples/fabric-cli/cmd/fabric-cli/chaincode/utils"
+	cliconfig "github.com/Shirikatsu/fabric-examples/fabric-cli/cmd/fabric-cli/config"
+	"github.com/Shirikatsu/fabric-examples/fabric-cli/cmd/fabric-cli/executor"
+	"github.com/Shirikatsu/fabric-examples/fabric-cli/cmd/fabric-cli/printer"
 )
 
 // Task is a Task that invokes a chaincode

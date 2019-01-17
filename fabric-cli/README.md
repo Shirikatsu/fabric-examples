@@ -73,7 +73,7 @@ make example-network
 Open another shell and go to the CLI directory
 
 ```bash
-cd $GOPATH/src/github.com/securekey/fabric-examples/fabric-cli/cmd/fabric-cli
+cd $GOPATH/src/github.com/Shirikatsu/fabric-examples/fabric-cli/cmd/fabric-cli
 ```
 
 Create channel 'orgchannel' and add anchor peers
@@ -93,13 +93,13 @@ go run fabric-cli.go channel join --cid orgchannel --config ../../test/fixtures/
 Install ExampleCC chaincode on all peers
 
 ```bash
-go run fabric-cli.go chaincode install --ccp=github.com/securekey/example_cc --ccid=ExampleCC --v v0 --gopath ../../test/fixtures/testdata --config ../../test/fixtures/config/config_test_local.yaml
+go run fabric-cli.go chaincode install --ccp=github.com/Shirikatsu/example_cc --ccid=ExampleCC --v v0 --gopath ../../test/fixtures/testdata --config ../../test/fixtures/config/config_test_local.yaml
 ```
 
 Instantiate ExampleCC chaincode with endorsement policy AND('Org1MSP.member','Org2MSP.member')
 
 ```bash
-go run fabric-cli.go chaincode instantiate --cid orgchannel --ccp=github.com/securekey/example_cc --ccid ExampleCC --v v0 --args '{"Args":["A","1","B","2"]}' --policy "AND('Org1MSP.member','Org2MSP.member')" --config ../../test/fixtures/config/config_test_local.yaml
+go run fabric-cli.go chaincode instantiate --cid orgchannel --ccp=github.com/Shirikatsu/example_cc --ccid ExampleCC --v v0 --args '{"Args":["A","1","B","2"]}' --policy "AND('Org1MSP.member','Org2MSP.member')" --config ../../test/fixtures/config/config_test_local.yaml
 ```
 
 Query ExampleCC chaincode on a set of peers
@@ -230,19 +230,19 @@ go run fabric-cli.go query localpeers --orgid org1 --config ../../test/fixtures/
 #### Install chaincode on a peer
 
 ```bash
-go run fabric-cli.go chaincode install --peer localhost:7051 --ccp=github.com/securekey/example_cc --gopath ../../test/fixtures/testdata --ccid=examplecc --v v0 --config ../../test/fixtures/config/config_test_local.yaml
+go run fabric-cli.go chaincode install --peer localhost:7051 --ccp=github.com/Shirikatsu/example_cc --gopath ../../test/fixtures/testdata --ccid=examplecc --v v0 --config ../../test/fixtures/config/config_test_local.yaml
 ```
 
 #### Install chaincode on all peers of org1
 
 ```bash
-go run fabric-cli.go chaincode install --orgid org1 --ccp=github.com/securekey/example_cc --gopath ../../test/fixtures/testdata --ccid=examplecc --v v0 --config ../../test/fixtures/config/config_test_local.yaml
+go run fabric-cli.go chaincode install --orgid org1 --ccp=github.com/Shirikatsu/example_cc --gopath ../../test/fixtures/testdata --ccid=examplecc --v v0 --config ../../test/fixtures/config/config_test_local.yaml
 ```
 
 #### Install chaincode on all peers
 
 ```bash
-go run fabric-cli.go chaincode install --ccp=github.com/securekey/example_cc --gopath ../../test/fixtures/testdata --ccid=examplecc --v v0 --config ../../test/fixtures/config/config_test_local.yaml
+go run fabric-cli.go chaincode install --ccp=github.com/Shirikatsu/example_cc --gopath ../../test/fixtures/testdata --ccid=examplecc --v v0 --config ../../test/fixtures/config/config_test_local.yaml
 ```
 
 ### Instantiate and Upgrade Chaincode
@@ -250,27 +250,27 @@ go run fabric-cli.go chaincode install --ccp=github.com/securekey/example_cc --g
 #### Instantiate chaincode with default endorsement policy (any one)
 
 ```bash
-go run fabric-cli.go chaincode instantiate --cid orgchannel --ccp github.com/securekey/example_cc --ccid examplecc --v v0 --args='{"Args":["A","1","B","2"]}' --config ../../test/fixtures/config/config_test_local.yaml
+go run fabric-cli.go chaincode instantiate --cid orgchannel --ccp github.com/Shirikatsu/example_cc --ccid examplecc --v v0 --args='{"Args":["A","1","B","2"]}' --config ../../test/fixtures/config/config_test_local.yaml
 ```
 
 #### Instantiate chaincode with specified endorsement policy
 
 ```bash
-go run fabric-cli.go chaincode instantiate --cid orgchannel --ccp github.com/securekey/example_cc --ccid examplecc --v v0 --args='{"Args":["A","1","B","2"]}' --policy "AND('Org1MSP.member','Org2MSP.member')" --config ../../test/fixtures/config/config_test_local.yaml
+go run fabric-cli.go chaincode instantiate --cid orgchannel --ccp github.com/Shirikatsu/example_cc --ccid examplecc --v v0 --args='{"Args":["A","1","B","2"]}' --policy "AND('Org1MSP.member','Org2MSP.member')" --config ../../test/fixtures/config/config_test_local.yaml
 ```
 
 #### Instantiate chaincode with specified private data collection configuration (Fabric 1.2 and greater)
 
 ```bash
-go run fabric-cli.go chaincode install --ccp=github.com/securekey/example2_cc --gopath ../../test/fixtures/testdata --ccid=example2cc --v v0 --config ../../test/fixtures/config/config_test_local.yaml
-go run fabric-cli.go chaincode instantiate --cid orgchannel --ccp github.com/securekey/example2_cc --ccid example2cc --v v0 --policy "AND('Org1MSP.member','Org2MSP.member')" --collconfig ../../test/fixtures/config/pvtdatacollection.json --config ../../test/fixtures/config/config_test_local.yaml
+go run fabric-cli.go chaincode install --ccp=github.com/Shirikatsu/example2_cc --gopath ../../test/fixtures/testdata --ccid=example2cc --v v0 --config ../../test/fixtures/config/config_test_local.yaml
+go run fabric-cli.go chaincode instantiate --cid orgchannel --ccp github.com/Shirikatsu/example2_cc --ccid example2cc --v v0 --policy "AND('Org1MSP.member','Org2MSP.member')" --collconfig ../../test/fixtures/config/pvtdatacollection.json --config ../../test/fixtures/config/config_test_local.yaml
 ```
 
 #### Upgrade chaincode
 
 ```bash
-go run fabric-cli.go chaincode install --cid=orgchannel --ccp=github.com/securekey/example_cc --gopath ../../test/fixtures/testdata --ccid=examplecc --v v1 --config ../../test/fixtures/config/config_test_local.yaml
-go run fabric-cli.go chaincode upgrade --cid orgchannel --ccp github.com/securekey/example_cc --ccid examplecc --v v1 --args='{"Args":["A","1","B","2"]}' --policy "OutOf(2,'Org1MSP.member','Org2MSP.member')" --config ../../test/fixtures/config/config_test_local.yaml
+go run fabric-cli.go chaincode install --cid=orgchannel --ccp=github.com/Shirikatsu/example_cc --gopath ../../test/fixtures/testdata --ccid=examplecc --v v1 --config ../../test/fixtures/config/config_test_local.yaml
+go run fabric-cli.go chaincode upgrade --cid orgchannel --ccp github.com/Shirikatsu/example_cc --ccid examplecc --v v1 --args='{"Args":["A","1","B","2"]}' --policy "OutOf(2,'Org1MSP.member','Org2MSP.member')" --config ../../test/fixtures/config/config_test_local.yaml
 ```
 
 ### Chaincode Info

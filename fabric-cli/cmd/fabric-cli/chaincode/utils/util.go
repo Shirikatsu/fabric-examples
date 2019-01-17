@@ -14,7 +14,7 @@ import (
 	"strings"
 	"time"
 
-	cliconfig "github.com/securekey/fabric-examples/fabric-cli/cmd/fabric-cli/config"
+	cliconfig "github.com/Shirikatsu/fabric-examples/fabric-cli/cmd/fabric-cli/config"
 )
 
 const (

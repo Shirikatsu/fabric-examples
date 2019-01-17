@@ -6,7 +6,10 @@ SPDX-License-Identifier: Apache-2.0
 
 package printer
 
-import "fmt"
+import (
+    "fmt"
+	fabriccmn "github.com/hyperledger/fabric-sdk-go/third_party/github.com/hyperledger/fabric/protos/common"
+)
 
 const (
 	indentSize = 3
@@ -14,16 +17,17 @@ const (
 
 type printer struct {
 	Formatter Formatter
+	Encoder Encoder
 }
 
 // newPrinter returns a new Printer of the given OutputFormat and WriterType
 func newPrinter(format OutputFormat, writerType WriterType) *printer {
-	return &printer{Formatter: NewFormatter(format, writerType)}
+	return &printer{Formatter: NewFormatter(format, writerType), Encoder: NewEncoder()}
 }
 
 // newPrinterWithOpts returns a new Printer of the given OutputFormat and WriterType
 func newPrinterWithOpts(format OutputFormat, writerType WriterType, opts *FormatterOpts) *printer {
-	return &printer{Formatter: NewFormatterWithOpts(format, writerType, opts)}
+	return &printer{Formatter: NewFormatterWithOpts(format, writerType, opts), Encoder: NewEncoder()}
 }
 
 // Print prints a formatted string
@@ -88,4 +92,9 @@ func (p *printer) PrintHeader() {
 // PrintFooter prints a footer.
 func (p *printer) PrintFooter() {
 	p.Formatter.PrintFooter()
+}
+
+// EncodeBlock returns an Ion-encoded block.
+func (p *printer) EncodeBlock(block *fabriccmn.Block) (string, error) {
+	return p.Encoder.EncodeBlockIon(block)
 }

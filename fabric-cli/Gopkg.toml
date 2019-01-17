@@ -2,3 +2,7 @@
 [[constraint]]
   name = "github.com/hyperledger/fabric-sdk-go"
   revision = "05ffa0a5ae5db0890341fdec498ccc5e684a6ea5"
+
+[[constraint]]
+  name = "github.com/hyperledger/fabric"
+  revision = "ab0a67ad7102f1281736e2c309e9a0ef91b08fd9"
