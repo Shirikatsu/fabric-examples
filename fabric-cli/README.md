@@ -11,6 +11,7 @@ Query:
 
 - Info - Displays information about the block, including the block height
 - Block - Displays the contents of a given block
+- Block Formatted - Displays an RLP encoded block in [Ion required](https://github.com/clearmatics/ion/issues/129) format.
 - Tx - Displays the contents of a transaction within a block
 - Channels - Displays all channels for a peer
 - Installed - Displays the chaincodes installed on a peer
@@ -182,6 +183,18 @@ go run fabric-cli.go query block --cid orgchannel --num 0 --base64 --config ../.
 ```
 
 #### Query block by hash (replace the example hash with a valid hash, e.g. using the output from query info)
+
+```bash
+go run fabric-cli.go query block --cid orgchannel --hash BNNsxK_Xyz2d3Yj2g6M2t3aOYkHCxvoPeIGmTWdOJ9w --base64 --config ../../test/fixtures/config/config_test_local.yaml
+```
+
+#### Query block format by block number
+
+```bash
+go run fabric-cli.go query block_formatted --cid orgchannel --num 0 --base64 --config ../../test/fixtures/config/config_test_local.yaml
+```
+
+#### Query block format by hash (replace the example hash with a valid hash, e.g. using the output from query info)
 
 ```bash
 go run fabric-cli.go query block --cid orgchannel --hash BNNsxK_Xyz2d3Yj2g6M2t3aOYkHCxvoPeIGmTWdOJ9w --base64 --config ../../test/fixtures/config/config_test_local.yaml
