@@ -102,7 +102,10 @@ func (e *encoder) EncodeBlockIon(block *fabriccmn.Block) (string, error) {
 
                         for _, w := range nsRWSet.KvRwSet.Writes {
                             writesetKey := w.Key
-                            writesetDelete := w.IsDelete
+                            writesetDelete := "false"
+                            if w.IsDelete {
+                                writesetDelete = "true"
+                            }
                             writesetValue := string(w.Value[:])
 
                             writeset := make([]interface{}, 0)
