@@ -157,9 +157,12 @@ func (e *encoder) EncodeBlockIon(block *fabriccmn.Block) (string, error) {
     formattedBlock := make([]interface{}, 0)
     formattedBlock = append(formattedBlock, channelId, blk)
 
-    fmt.Println(formattedBlock)
+    formattedChannel := make([]interface{}, 0)
+    formattedChannel = append(formattedChannel, formattedBlock)
 
-    encodedBlock, err := rlp.EncodeToBytes(formattedBlock)
+    fmt.Println(formattedChannel)
+
+    encodedBlock, err := rlp.EncodeToBytes(formattedChannel)
     if err != nil {
         return "", err
     }
