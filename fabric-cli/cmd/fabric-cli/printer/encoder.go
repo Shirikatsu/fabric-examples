@@ -160,7 +160,7 @@ func (e *encoder) EncodeBlockIon(block *fabriccmn.Block) (string, error) {
     formattedChannel := make([]interface{}, 0)
     formattedChannel = append(formattedChannel, formattedBlock)
 
-    fmt.Println(formattedChannel)
+    //fmt.Println(formattedChannel)
 
     encodedBlock, err := rlp.EncodeToBytes(formattedChannel)
     if err != nil {
